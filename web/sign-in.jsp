@@ -47,7 +47,7 @@
                         <span class="cate">hello</span>
                         <h2 class="title">welcome back</h2>
                     </div>
-                    <form action="LoginControl" class="account-form" method="POST">
+                    <form action="login" class="account-form" method="POST">
                         <div class="form-group">
                             <label for="email2">Email<span>*</span></label>
                             <input name="email" type="email" placeholder="Enter Your Email" id="email2" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
@@ -66,7 +66,7 @@
                         </div>
                     </form>
                     <div class="option">
-                        Don't have an account? <a href="sign-up.html">sign up now</a>
+                        Don't have an account? <a href="sign-up">sign up now</a>
                     </div>
                     <div class="or"><span>Or</span></div>
                     <ul class="social-icons">
@@ -81,7 +81,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#0">
+                            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/PRJ301/login-google&response_type=code
+    &client_id=234581659066-a9lfu4m2ee790rq2orlmhi7v68otp6ld.apps.googleusercontent.com&approval_prompt=force">
                                 <i class="fab fa-google"></i>
                             </a>
                         </li>

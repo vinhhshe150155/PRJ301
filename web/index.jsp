@@ -1,12 +1,17 @@
+<%@page import="dal.SearchDAO"%>
+<%@page import="java.util.List"%>
 <%@page import="javax.enterprise.context.RequestScoped"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <!-- Mirrored from pixner.net/boleto/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jun 2021 02:43:23 GMT -->
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -31,7 +36,7 @@
     <title>Boleto - Online Ticket Booking Website HTML Template</title>
   </head>
 
-  <body>
+  
     <!-- ==========Preloader========== -->
     <div class="preloader">
       <div class="preloader-inner">
@@ -50,69 +55,7 @@
     <!-- ==========Overlay========== -->
 
     <!-- ==========Header-Section========== -->
-    <header class="header-section">
-      <div class="container">
-        <div class="header-wrapper">
-          <div class="logo">
-            <a href="index.html">
-              <img src="assets/images/logo/logo.png" alt="logo" />
-            </a>
-          </div>
-          <ul class="menu">
-            <li>
-              <a href="index.html" class="active">Home</a>
-            </li>
-            <li>
-              <a href="movie-list.html">movies</a>
-            </li>
-            <li>
-              <a href="events.html">events</a>
-            </li>
-
-            <li>
-              <a href="#0">pages</a>
-              <ul class="submenu">
-                <li>
-                  <a href="about.html">About Us</a>
-                </li>
-                <li>
-                  <a href="apps-download.html">Apps Download</a>
-                </li>
-                <li>
-                  <a href="sign-in.jsp">Sign In</a>
-                </li>
-                <li>
-                  <a href="sign-up.jsp">Sign Up</a>
-                </li>
-                <li>
-                  <a href="404.html">404</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="blog.html">blog</a>
-            </li>
-            <li>
-              <a href="contact.html">contact</a>
-            </li>
-            <li class="header-button pr-0">
-                <c:set var="acc" value="${sessionScope.account}"/>
-                <c:if test="${acc==null}">
-                    <a href="sign-up.jsp">join us</a>
-                </c:if>
-                    <c:if test="${acc!=null}">
-                    <p>Hello, ${fn:substringBefore(acc.email,"@")}</p>
-                </c:if>
-            </li>
-          </ul>
-          <div class="header-bar d-lg-none">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </header>
+    <jsp:include page="header.jsp" flush="true"/>
     <!-- ==========Header-Section========== -->
 
     <!-- ==========Banner-Section========== -->
@@ -133,180 +76,7 @@
         </div>
       </div>
     </section>
-    <!-- ==========Banner-Section========== -->
-
-    <!-- ==========Ticket-Search========== -->
-    <section class="search-ticket-section padding-top pt-lg-0">
-      <div class="container">
-        <div
-          class="search-tab bg_img"
-          data-background="assets/images/ticket/ticket-bg01.jpg"
-        >
-          <div class="row align-items-center mb--20">
-            <div class="col-lg-6 mb-20">
-              <div class="search-ticket-header">
-                <h6 class="category">welcome to Boleto</h6>
-                <h3 class="title">what are you looking for</h3>
-              </div>
-            </div>
-          </div>
-          <div class="tab-area">
-            <div class="tab-item active">
-              <form class="ticket-search-form">
-                <div class="form-group large">
-                  <input type="text" placeholder="Search for Movies" />
-                  <button type="submit"><i class="fas fa-search"></i></button>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/city.png" alt="ticket" />
-                  </div>
-                  <span class="type">city</span>
-                  <select class="select-bar">
-                    <option value="london">London</option>
-                    <option value="dhaka">dhaka</option>
-                    <option value="rosario">rosario</option>
-                    <option value="madrid">madrid</option>
-                    <option value="koltaka">kolkata</option>
-                    <option value="rome">rome</option>
-                    <option value="khoksa">khoksa</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/date.png" alt="ticket" />
-                  </div>
-                  <span class="type">date</span>
-                  <select class="select-bar">
-                    <option value="26-12-19">23/10/2020</option>
-                    <option value="26-12-19">24/10/2020</option>
-                    <option value="26-12-19">25/10/2020</option>
-                    <option value="26-12-19">26/10/2020</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/cinema.png" alt="ticket" />
-                  </div>
-                  <span class="type">cinema</span>
-                  <select class="select-bar">
-                    <option value="Awaken">Awaken</option>
-                    <option value="dhaka">dhaka</option>
-                    <option value="rosario">rosario</option>
-                    <option value="madrid">madrid</option>
-                    <option value="koltaka">kolkata</option>
-                    <option value="rome">rome</option>
-                    <option value="khoksa">khoksa</option>
-                  </select>
-                </div>
-              </form>
-            </div>
-            <div class="tab-item">
-              <form class="ticket-search-form">
-                <div class="form-group large">
-                  <input type="text" placeholder="Search for Events" />
-                  <button type="submit"><i class="fas fa-search"></i></button>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/city.png" alt="ticket" />
-                  </div>
-                  <span class="type">city</span>
-                  <select class="select-bar">
-                    <option value="london">London</option>
-                    <option value="dhaka">dhaka</option>
-                    <option value="rosario">rosario</option>
-                    <option value="madrid">madrid</option>
-                    <option value="koltaka">kolkata</option>
-                    <option value="rome">rome</option>
-                    <option value="khoksa">khoksa</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/date.png" alt="ticket" />
-                  </div>
-                  <span class="type">date</span>
-                  <select class="select-bar">
-                    <option value="26-12-19">23/10/2020</option>
-                    <option value="26-12-19">24/10/2020</option>
-                    <option value="26-12-19">25/10/2020</option>
-                    <option value="26-12-19">26/10/2020</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/cinema.png" alt="ticket" />
-                  </div>
-                  <span class="type">event</span>
-                  <select class="select-bar">
-                    <option value="angular">angular</option>
-                    <option value="startup">startup</option>
-                    <option value="rosario">rosario</option>
-                    <option value="madrid">madrid</option>
-                    <option value="koltaka">kolkata</option>
-                    <option value="Last-First">Last-First</option>
-                    <option value="wish">wish</option>
-                  </select>
-                </div>
-              </form>
-            </div>
-            <div class="tab-item">
-              <form class="ticket-search-form">
-                <div class="form-group large">
-                  <input type="text" placeholder="Search fo Sports" />
-                  <button type="submit"><i class="fas fa-search"></i></button>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/city.png" alt="ticket" />
-                  </div>
-                  <span class="type">city</span>
-                  <select class="select-bar">
-                    <option value="london">London</option>
-                    <option value="dhaka">dhaka</option>
-                    <option value="rosario">rosario</option>
-                    <option value="madrid">madrid</option>
-                    <option value="koltaka">kolkata</option>
-                    <option value="rome">rome</option>
-                    <option value="khoksa">khoksa</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/date.png" alt="ticket" />
-                  </div>
-                  <span class="type">date</span>
-                  <select class="select-bar">
-                    <option value="26-12-19">23/10/2020</option>
-                    <option value="26-12-19">24/10/2020</option>
-                    <option value="26-12-19">25/10/2020</option>
-                    <option value="26-12-19">26/10/2020</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <div class="thumb">
-                    <img src="assets/images/ticket/cinema.png" alt="ticket" />
-                  </div>
-                  <span class="type">sports</span>
-                  <select class="select-bar">
-                    <option value="football">football</option>
-                    <option value="cricket">cricket</option>
-                    <option value="cabadi">cabadi</option>
-                    <option value="madrid">madrid</option>
-                    <option value="gadon">gadon</option>
-                    <option value="rome">rome</option>
-                    <option value="khoksa">khoksa</option>
-                  </select>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ==========Ticket-Search========== -->
-
+    <jsp:include page="movie-search.jsp"/>
     <!-- ==========Movie-Main-Section========== -->
     <section class="movie-section padding-top padding-bottom bg-two">
       <div class="container">
@@ -348,55 +118,20 @@
                 </ul>
               </div>
             </div>
-            <div class="widget-1 widget-banner">
-              <div class="widget-1-body">
-                <a href="#0">
-                  <img
-                    src="assets/images/sidebar/banner/banner01.jpg"
-                    alt="banner"
-                  />
-                </a>
-              </div>
-            </div>
             <div class="widget-1 widget-trending-search">
               <h3 class="title">Trending Searches</h3>
               <div class="widget-1-body">
                 <ul>
-                  <li>
-                    <h6 class="sub-title">
-                      <a href="#0">mars</a>
-                    </h6>
-                    <p>Movies</p>
-                  </li>
-                  <li>
-                    <h6 class="sub-title">
-                      <a href="#0">alone</a>
-                    </h6>
-                    <p>Movies</p>
-                  </li>
-                  <li>
-                    <h6 class="sub-title">
-                      <a href="#0">music event</a>
-                    </h6>
-                    <p>event</p>
-                  </li>
-                  <li>
-                    <h6 class="sub-title">
-                      <a href="#0">NBA Games 2020</a>
-                    </h6>
-                    <p>Sports</p>
-                  </li>
+                    <%List<String> slist = new SearchDAO().getTopSearch(4);%>
+                    <%for(String s: slist){%>
+                        <li>
+                            <h6 class="sub-title">
+                                <a href="films?name=<%=s%>"><%=s%></a>
+                            </h6>
+                            <p></p>
+                        </li>
+                    <%}%>
                 </ul>
-              </div>
-            </div>
-            <div class="widget-1 widget-banner">
-              <div class="widget-1-body">
-                <a href="#0">
-                  <img
-                    src="assets/images/sidebar/banner/banner02.jpg"
-                    alt="banner"
-                  />
-                </a>
               </div>
             </div>
           </div>
@@ -404,25 +139,31 @@
             <div class="article-section padding-bottom">
               <div class="section-header-1">
                 <h2 class="title">movies</h2>
-                <a class="view-all" href="movie-grid.html">View All</a>
+                <a class="view-all" href="films">View All</a>
               </div>
               <div class="row mb-30-none justify-content-center">
                   <!--film-->
-                <div class="col-sm-6 col-lg-4">
+                  <c:forEach items="${requestScope.film}" var="film">
+                      <div class="col-sm-6 col-lg-4">
                   <div class="movie-grid">
                     <div class="movie-thumb c-thumb">
-                      <a href="#0">
+                      <a href="film-detail?filmID=${film.filmID}">
                         <img
-                          src="assets/images/movie/movie01.jpg"
+                          src="${film.film_image}"
                           alt="movie"
                         />
+                       
                       </a>
                     </div>
                     <div class="movie-content bg-one">
                       <h5 class="title m-0">
-                        <a href="#0">alone</a>
+                        <a href="film-detail?filmID=${film.filmID}">${film.name}</a>
                       </h5>
+                      
                       <ul class="movie-rating-percent">
+                          <li>
+                              <p>${film.duration} min</p>
+                          </li>
                         <li>
                           <div class="thumb">
                             <img
@@ -430,7 +171,7 @@
                               alt="movie"
                             />
                           </div>
-                          <span class="content">88%</span>
+                          <span class="content">${film.rating} points</span>
                         </li>
                         <li>
                           <div class="thumb">
@@ -439,28 +180,45 @@
                               alt="movie"
                             />
                           </div>
-                          <span class="content">88%</span>
+                          <span class="content"></span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
+                  </c:forEach>
+                
                   <!--film-->
-                <div class="col-sm-6 col-lg-4">
+              </div>
+            </div>
+              <div class="article-section padding-bottom">
+              <div class="section-header-1">
+                <h2 class="title">showing</h2>
+                <a class="view-all" href="films">View All Film</a>
+              </div>
+              <div class="row mb-30-none justify-content-center">
+                  <!--film-->
+                  <c:forEach items="${requestScope.fToday}" var="film">
+                      <div class="col-sm-6 col-lg-4">
                   <div class="movie-grid">
                     <div class="movie-thumb c-thumb">
-                      <a href="#0">
+                      <a href="film-detail?filmID=${film.filmID}">
                         <img
-                          src="assets/images/movie/movie02.jpg"
+                          src="${film.film_image}"
                           alt="movie"
                         />
+                       
                       </a>
                     </div>
                     <div class="movie-content bg-one">
                       <h5 class="title m-0">
-                        <a href="#0">mars</a>
+                        <a href="film-detail?filmID=${film.filmID}">${film.name}</a>
                       </h5>
+                      
                       <ul class="movie-rating-percent">
+                          <li>
+                              <p>${film.duration} min</p>
+                          </li>
                         <li>
                           <div class="thumb">
                             <img
@@ -468,7 +226,7 @@
                               alt="movie"
                             />
                           </div>
-                          <span class="content">88%</span>
+                          <span class="content">${film.rating} points</span>
                         </li>
                         <li>
                           <div class="thumb">
@@ -477,49 +235,15 @@
                               alt="movie"
                             />
                           </div>
-                          <span class="content">88%</span>
+                          <span class="content"></span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="movie-grid">
-                    <div class="movie-thumb c-thumb">
-                      <a href="#0">
-                        <img
-                          src="assets/images/movie/movie03.jpg"
-                          alt="movie"
-                        />
-                      </a>
-                    </div>
-                    <div class="movie-content bg-one">
-                      <h5 class="title m-0">
-                        <a href="#0">venus</a>
-                      </h5>
-                      <ul class="movie-rating-percent">
-                        <li>
-                          <div class="thumb">
-                            <img
-                              src="assets/images/movie/tomato.png"
-                              alt="movie"
-                            />
-                          </div>
-                          <span class="content">88%</span>
-                        </li>
-                        <li>
-                          <div class="thumb">
-                            <img
-                              src="assets/images/movie/cake.png"
-                              alt="movie"
-                            />
-                          </div>
-                          <span class="content">88%</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                  </c:forEach>
+                
+                  <!--film-->
               </div>
             </div>
             <div class="article-section padding-bottom">
@@ -602,175 +326,14 @@
                 </div>
               </div>
             </div>
-            <div class="article-section">
-              <div class="section-header-1">
-                <h2 class="title">sports</h2>
-                <a class="view-all" href="sports.html">View All</a>
-              </div>
-              <div class="row mb-30-none justify-content-center">
-                <div class="col-sm-6 col-lg-4">
-                  <div class="sports-grid">
-                    <div class="movie-thumb c-thumb">
-                      <a href="#0">
-                        <img
-                          src="assets/images/sports/sports01.jpg"
-                          alt="sports"
-                        />
-                      </a>
-                      <div class="event-date">
-                        <h6 class="date-title">28</h6>
-                        <span>Dec</span>
-                      </div>
-                    </div>
-                    <div class="movie-content bg-one">
-                      <h5 class="title m-0">
-                        <a href="#0">football league tournament</a>
-                      </h5>
-                      <div class="movie-rating-percent">
-                        <span>327 Montague Street</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="sports-grid">
-                    <div class="movie-thumb c-thumb">
-                      <a href="#0">
-                        <img
-                          src="assets/images/sports/sports02.jpg"
-                          alt="sports"
-                        />
-                      </a>
-                      <div class="event-date">
-                        <h6 class="date-title">28</h6>
-                        <span>Dec</span>
-                      </div>
-                    </div>
-                    <div class="movie-content bg-one">
-                      <h5 class="title m-0">
-                        <a href="#0">world cricket league 2020</a>
-                      </h5>
-                      <div class="movie-rating-percent">
-                        <span>327 Montague Street</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                  <div class="sports-grid">
-                    <div class="movie-thumb c-thumb">
-                      <a href="#0">
-                        <img
-                          src="assets/images/sports/sports03.jpg"
-                          alt="sports"
-                        />
-                      </a>
-                      <div class="event-date">
-                        <h6 class="date-title">28</h6>
-                        <span>Dec</span>
-                      </div>
-                    </div>
-                    <div class="movie-content bg-one">
-                      <h5 class="title m-0">
-                        <a href="#0">basket ball tournament 2020</a>
-                      </h5>
-                      <div class="movie-rating-percent">
-                        <span>327 Montague Street</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
     <!-- ==========Movie-Main-Section========== -->
-
+    
     <!-- ==========Newslater-Section========== -->
-    <footer class="footer-section">
-      <div class="newslater-section padding-bottom">
-        <div class="container">
-          <div
-            class="newslater-container bg_img"
-            data-background="assets/images/newslater/newslater-bg01.jpg"
-          >
-            <div class="newslater-wrapper">
-              <h5 class="cate">subscribe to Boleto</h5>
-              <h3 class="title">to get exclusive benifits</h3>
-              <form class="newslater-form">
-                <input type="text" placeholder="Your Email Address" />
-                <button type="submit">subscribe</button>
-              </form>
-              <p>We respect your privacy, so we never share your info</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="footer-top">
-          <div class="logo">
-            <a href="index-1.html">
-              <img src="assets/images/footer/footer-logo.png" alt="footer" />
-            </a>
-          </div>
-          <ul class="social-icons">
-            <li>
-              <a href="#0">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#0" class="active">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
-                <i class="fab fa-pinterest-p"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
-                <i class="fab fa-google"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#0">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-bottom-area">
-            <div class="left">
-              <p>
-                Copyright © 2020.All Rights Reserved By <a href="#0">Boleto </a>
-              </p>
-            </div>
-            <ul class="links">
-              <li>
-                <a href="#0">About</a>
-              </li>
-              <li>
-                <a href="#0">Terms Of Use</a>
-              </li>
-              <li>
-                <a href="#0">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#0">FAQ</a>
-              </li>
-              <li>
-                <a href="#0">Feedback</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <jsp:include flush="true" page="footer.jsp"/>
     <!-- ==========Newslater-Section========== -->
 
     <script src="assets/js/jquery-3.3.1.min.js"></script>
@@ -787,7 +350,40 @@
     <script src="assets/js/viewport.jquery.js"></script>
     <script src="assets/js/nice-select.js"></script>
     <script src="assets/js/main.js"></script>
-  </body>
+    <script type="text/javascript">
+                $(document).ready(function(){          
+
+                $('#searchFilm').on('input', function(){
+
+                        var name = $('#searchFilm').val();
+
+                        $.ajax({
+
+                                type: "GET",
+
+                                url : "SearchAjax",
+
+                                data: {name: name},
+
+                                success: function(responseText){
+//                                        document.getElementById("filmContent").innerHTML = responseText;
+                                        document.getElementById("searchList").innerHTML = responseText;
+                                }
+
+                        });                          
+                });
+                var modal = document.getElementById('searchFilm');
+                var popup = document.getElementById('searchList');
+// When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target !== modal) {
+                      popup.style.display = "none";
+                    }else{
+                      popup.style.display = "flex";
+                    } 
+                };
+         });
+    </script>
 
   <!-- Mirrored from pixner.net/boleto/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jun 2021 02:44:42 GMT -->
 </html>

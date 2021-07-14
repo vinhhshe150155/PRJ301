@@ -3,11 +3,13 @@ import dal.CustomerAccount;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
+@WebServlet(name = "SignUpControl", urlPatterns = {"/sign-up"})
 public class SignUpControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -15,6 +17,7 @@ public class SignUpControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.getRequestDispatcher("sign-up.jsp").forward(request, response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -29,15 +32,26 @@ public class SignUpControl extends HttpServlet {
         }else{
             if(db.checkAccountExist(email)){
                 request.setAttribute("error", email+" existed!");
-                request.getRequestDispatcher("sign-up.jsp").forward(request, response);
+                response.sendRedirect("sign-up");
             }else{
                 db.create(new Account(email, password1));
                 HttpSession session = request.getSession();
                 session.setAttribute("account", new Account(email, password1));
-                response.sendRedirect("index.jsp");
+                sendMail(email, "Welcome to Boleto", "Hello, "+email);
+                Account acc =  (Account)session.getAttribute("account");
+                
+                //            Object o = session.getAttribute("account");
+//            Account customer =  (Account) o;
+//            System.out.println("Home: "+customer.getEmail());
+                System.out.println(acc.getEmail());
+                response.sendRedirect("home");
         }
         }
        
+    }
+    public void sendMail(String email, String subject, String msg){
+		
+		Mailer.send(email, subject, msg);
     }
     @Override
     public String getServletInfo() {

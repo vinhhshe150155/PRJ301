@@ -18,6 +18,7 @@ static {
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
@@ -28,11 +29,13 @@ static {
   }
 
   public void _jspInit() {
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_set_var_value_nobody.release();
     _jspx_tagPool_c_if_test.release();
   }
@@ -50,7 +53,7 @@ static {
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -65,11 +68,14 @@ static {
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("  <!-- Mirrored from pixner.net/boleto/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 06 Jun 2021 02:43:23 GMT -->\r\n");
       out.write("  <head>\r\n");
       out.write("    <meta charset=\"UTF-8\" />\r\n");
+      out.write("    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\r\n");
       out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n");
       out.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\r\n");
       out.write("\r\n");
@@ -117,13 +123,13 @@ static {
       out.write("      <div class=\"container\">\r\n");
       out.write("        <div class=\"header-wrapper\">\r\n");
       out.write("          <div class=\"logo\">\r\n");
-      out.write("            <a href=\"index.html\">\r\n");
+      out.write("            <a href=\"index.jsp\">\r\n");
       out.write("              <img src=\"assets/images/logo/logo.png\" alt=\"logo\" />\r\n");
       out.write("            </a>\r\n");
       out.write("          </div>\r\n");
       out.write("          <ul class=\"menu\">\r\n");
       out.write("            <li>\r\n");
-      out.write("              <a href=\"index.html\" class=\"active\">Home</a>\r\n");
+      out.write("              <a href=\"index.jsp\" class=\"active\">Home</a>\r\n");
       out.write("            </li>\r\n");
       out.write("            <li>\r\n");
       out.write("              <a href=\"movie-list.html\">movies</a>\r\n");
@@ -472,122 +478,16 @@ static {
       out.write("            <div class=\"article-section padding-bottom\">\r\n");
       out.write("              <div class=\"section-header-1\">\r\n");
       out.write("                <h2 class=\"title\">movies</h2>\r\n");
-      out.write("                <a class=\"view-all\" href=\"movie-grid.html\">View All</a>\r\n");
+      out.write("                <a class=\"view-all\" href=\"/films\">View All</a>\r\n");
       out.write("              </div>\r\n");
       out.write("              <div class=\"row mb-30-none justify-content-center\">\r\n");
       out.write("                  <!--film-->\r\n");
-      out.write("                <div class=\"col-sm-6 col-lg-4\">\r\n");
-      out.write("                  <div class=\"movie-grid\">\r\n");
-      out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
-      out.write("                      <a href=\"#0\">\r\n");
-      out.write("                        <img\r\n");
-      out.write("                          src=\"assets/images/movie/movie01.jpg\"\r\n");
-      out.write("                          alt=\"movie\"\r\n");
-      out.write("                        />\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"movie-content bg-one\">\r\n");
-      out.write("                      <h5 class=\"title m-0\">\r\n");
-      out.write("                        <a href=\"#0\">alone</a>\r\n");
-      out.write("                      </h5>\r\n");
-      out.write("                      <ul class=\"movie-rating-percent\">\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                          <div class=\"thumb\">\r\n");
-      out.write("                            <img\r\n");
-      out.write("                              src=\"assets/images/movie/tomato.png\"\r\n");
-      out.write("                              alt=\"movie\"\r\n");
-      out.write("                            />\r\n");
-      out.write("                          </div>\r\n");
-      out.write("                          <span class=\"content\">88%</span>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                          <div class=\"thumb\">\r\n");
-      out.write("                            <img\r\n");
-      out.write("                              src=\"assets/images/movie/cake.png\"\r\n");
-      out.write("                              alt=\"movie\"\r\n");
-      out.write("                            />\r\n");
-      out.write("                          </div>\r\n");
-      out.write("                          <span class=\"content\">88%</span>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                      </ul>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                  </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("                  ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                \r\n");
       out.write("                  <!--film-->\r\n");
-      out.write("                <div class=\"col-sm-6 col-lg-4\">\r\n");
-      out.write("                  <div class=\"movie-grid\">\r\n");
-      out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
-      out.write("                      <a href=\"#0\">\r\n");
-      out.write("                        <img\r\n");
-      out.write("                          src=\"assets/images/movie/movie02.jpg\"\r\n");
-      out.write("                          alt=\"movie\"\r\n");
-      out.write("                        />\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"movie-content bg-one\">\r\n");
-      out.write("                      <h5 class=\"title m-0\">\r\n");
-      out.write("                        <a href=\"#0\">mars</a>\r\n");
-      out.write("                      </h5>\r\n");
-      out.write("                      <ul class=\"movie-rating-percent\">\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                          <div class=\"thumb\">\r\n");
-      out.write("                            <img\r\n");
-      out.write("                              src=\"assets/images/movie/tomato.png\"\r\n");
-      out.write("                              alt=\"movie\"\r\n");
-      out.write("                            />\r\n");
-      out.write("                          </div>\r\n");
-      out.write("                          <span class=\"content\">88%</span>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                          <div class=\"thumb\">\r\n");
-      out.write("                            <img\r\n");
-      out.write("                              src=\"assets/images/movie/cake.png\"\r\n");
-      out.write("                              alt=\"movie\"\r\n");
-      out.write("                            />\r\n");
-      out.write("                          </div>\r\n");
-      out.write("                          <span class=\"content\">88%</span>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                      </ul>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                  </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-sm-6 col-lg-4\">\r\n");
-      out.write("                  <div class=\"movie-grid\">\r\n");
-      out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
-      out.write("                      <a href=\"#0\">\r\n");
-      out.write("                        <img\r\n");
-      out.write("                          src=\"assets/images/movie/movie03.jpg\"\r\n");
-      out.write("                          alt=\"movie\"\r\n");
-      out.write("                        />\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"movie-content bg-one\">\r\n");
-      out.write("                      <h5 class=\"title m-0\">\r\n");
-      out.write("                        <a href=\"#0\">venus</a>\r\n");
-      out.write("                      </h5>\r\n");
-      out.write("                      <ul class=\"movie-rating-percent\">\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                          <div class=\"thumb\">\r\n");
-      out.write("                            <img\r\n");
-      out.write("                              src=\"assets/images/movie/tomato.png\"\r\n");
-      out.write("                              alt=\"movie\"\r\n");
-      out.write("                            />\r\n");
-      out.write("                          </div>\r\n");
-      out.write("                          <span class=\"content\">88%</span>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                          <div class=\"thumb\">\r\n");
-      out.write("                            <img\r\n");
-      out.write("                              src=\"assets/images/movie/cake.png\"\r\n");
-      out.write("                              alt=\"movie\"\r\n");
-      out.write("                            />\r\n");
-      out.write("                          </div>\r\n");
-      out.write("                          <span class=\"content\">88%</span>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                      </ul>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                  </div>\r\n");
-      out.write("                </div>\r\n");
       out.write("              </div>\r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"article-section padding-bottom\">\r\n");
@@ -661,86 +561,6 @@ static {
       out.write("                    <div class=\"movie-content bg-one\">\r\n");
       out.write("                      <h5 class=\"title m-0\">\r\n");
       out.write("                        <a href=\"#0\">digital thinkers meetup</a>\r\n");
-      out.write("                      </h5>\r\n");
-      out.write("                      <div class=\"movie-rating-percent\">\r\n");
-      out.write("                        <span>327 Montague Street</span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                  </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("              </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("            <div class=\"article-section\">\r\n");
-      out.write("              <div class=\"section-header-1\">\r\n");
-      out.write("                <h2 class=\"title\">sports</h2>\r\n");
-      out.write("                <a class=\"view-all\" href=\"sports.html\">View All</a>\r\n");
-      out.write("              </div>\r\n");
-      out.write("              <div class=\"row mb-30-none justify-content-center\">\r\n");
-      out.write("                <div class=\"col-sm-6 col-lg-4\">\r\n");
-      out.write("                  <div class=\"sports-grid\">\r\n");
-      out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
-      out.write("                      <a href=\"#0\">\r\n");
-      out.write("                        <img\r\n");
-      out.write("                          src=\"assets/images/sports/sports01.jpg\"\r\n");
-      out.write("                          alt=\"sports\"\r\n");
-      out.write("                        />\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                      <div class=\"event-date\">\r\n");
-      out.write("                        <h6 class=\"date-title\">28</h6>\r\n");
-      out.write("                        <span>Dec</span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"movie-content bg-one\">\r\n");
-      out.write("                      <h5 class=\"title m-0\">\r\n");
-      out.write("                        <a href=\"#0\">football league tournament</a>\r\n");
-      out.write("                      </h5>\r\n");
-      out.write("                      <div class=\"movie-rating-percent\">\r\n");
-      out.write("                        <span>327 Montague Street</span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                  </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-sm-6 col-lg-4\">\r\n");
-      out.write("                  <div class=\"sports-grid\">\r\n");
-      out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
-      out.write("                      <a href=\"#0\">\r\n");
-      out.write("                        <img\r\n");
-      out.write("                          src=\"assets/images/sports/sports02.jpg\"\r\n");
-      out.write("                          alt=\"sports\"\r\n");
-      out.write("                        />\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                      <div class=\"event-date\">\r\n");
-      out.write("                        <h6 class=\"date-title\">28</h6>\r\n");
-      out.write("                        <span>Dec</span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"movie-content bg-one\">\r\n");
-      out.write("                      <h5 class=\"title m-0\">\r\n");
-      out.write("                        <a href=\"#0\">world cricket league 2020</a>\r\n");
-      out.write("                      </h5>\r\n");
-      out.write("                      <div class=\"movie-rating-percent\">\r\n");
-      out.write("                        <span>327 Montague Street</span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                  </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-sm-6 col-lg-4\">\r\n");
-      out.write("                  <div class=\"sports-grid\">\r\n");
-      out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
-      out.write("                      <a href=\"#0\">\r\n");
-      out.write("                        <img\r\n");
-      out.write("                          src=\"assets/images/sports/sports03.jpg\"\r\n");
-      out.write("                          alt=\"sports\"\r\n");
-      out.write("                        />\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                      <div class=\"event-date\">\r\n");
-      out.write("                        <h6 class=\"date-title\">28</h6>\r\n");
-      out.write("                        <span>Dec</span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"movie-content bg-one\">\r\n");
-      out.write("                      <h5 class=\"title m-0\">\r\n");
-      out.write("                        <a href=\"#0\">basket ball tournament 2020</a>\r\n");
       out.write("                      </h5>\r\n");
       out.write("                      <div class=\"movie-rating-percent\">\r\n");
       out.write("                        <span>327 Montague Street</span>\r\n");
@@ -946,6 +766,90 @@ static {
       return true;
     }
     _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${applicationScope.films}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("film");
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                      <div class=\"col-sm-6 col-lg-4\">\r\n");
+          out.write("                  <div class=\"movie-grid\">\r\n");
+          out.write("                    <div class=\"movie-thumb c-thumb\">\r\n");
+          out.write("                      <a href=\"#0\">\r\n");
+          out.write("                        <img\r\n");
+          out.write("                          src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${film.film_image}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"\r\n");
+          out.write("                          alt=\"movie\"\r\n");
+          out.write("                        />\r\n");
+          out.write("                       \r\n");
+          out.write("                      </a>\r\n");
+          out.write("                    </div>\r\n");
+          out.write("                    <div class=\"movie-content bg-one\">\r\n");
+          out.write("                      <h5 class=\"title m-0\">\r\n");
+          out.write("                        <a href=\"#0\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${film.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a>\r\n");
+          out.write("                      </h5>\r\n");
+          out.write("                      \r\n");
+          out.write("                      <ul class=\"movie-rating-percent\">\r\n");
+          out.write("                          <li>\r\n");
+          out.write("                              <p>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${film.duration}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(" min</p>\r\n");
+          out.write("                          </li>\r\n");
+          out.write("                        <li>\r\n");
+          out.write("                          <div class=\"thumb\">\r\n");
+          out.write("                            <img\r\n");
+          out.write("                              src=\"assets/images/movie/tomato.png\"\r\n");
+          out.write("                              alt=\"movie\"\r\n");
+          out.write("                            />\r\n");
+          out.write("                          </div>\r\n");
+          out.write("                          <span class=\"content\">88%</span>\r\n");
+          out.write("                        </li>\r\n");
+          out.write("                        <li>\r\n");
+          out.write("                          <div class=\"thumb\">\r\n");
+          out.write("                            <img\r\n");
+          out.write("                              src=\"assets/images/movie/cake.png\"\r\n");
+          out.write("                              alt=\"movie\"\r\n");
+          out.write("                            />\r\n");
+          out.write("                          </div>\r\n");
+          out.write("                          <span class=\"content\">88%</span>\r\n");
+          out.write("                        </li>\r\n");
+          out.write("                      </ul>\r\n");
+          out.write("                    </div>\r\n");
+          out.write("                  </div>\r\n");
+          out.write("                </div>\r\n");
+          out.write("                  ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
     return false;
   }
 }

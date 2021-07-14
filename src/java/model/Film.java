@@ -1,33 +1,31 @@
-
 package model;
 
-import java.sql.Date;
+import java.util.List;
 
 public class Film{
     private int filmID;
-    private String name, film_image, daodien, actor;
-    private int category_id;
+    private String name, film_image;
     private String date_release, film_start_date, film_end_date;
     private int duration;
-    private String languages;
     private String film_description;
-
+    private String trailer;
+    private List<Language> language;
+    private List<Actor> actor;
+    private List<Category> category;
+    private int rating;
     public Film() {
     }
 
-    public Film(int filmID, String name, String film_image, String daodien, String actor, int category_id, String date_release, String film_start_date, String film_end_date, int duration, String languages, String film_description) {
+    public Film(int filmID, String name, String film_image, String date_release, String film_start_date, String film_end_date, int duration, String film_description, String trailer) {
         this.filmID = filmID;
         this.name = name;
         this.film_image = film_image;
-        this.daodien = daodien;
-        this.actor = actor;
-        this.category_id = category_id;
         this.date_release = date_release;
         this.film_start_date = film_start_date;
         this.film_end_date = film_end_date;
         this.duration = duration;
-        this.languages = languages;
         this.film_description = film_description;
+        this.trailer = trailer;
     }
 
     public int getFilmID() {
@@ -52,30 +50,6 @@ public class Film{
 
     public void setFilm_image(String film_image) {
         this.film_image = film_image;
-    }
-
-    public String getDaodien() {
-        return daodien;
-    }
-
-    public void setDaodien(String daodien) {
-        this.daodien = daodien;
-    }
-
-    public String getActor() {
-        return actor;
-    }
-
-    public void setActor(String actor) {
-        this.actor = actor;
-    }
-
-    public int getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
     }
 
     public String getDate_release() {
@@ -110,14 +84,6 @@ public class Film{
         this.duration = duration;
     }
 
-    public String getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(String languages) {
-        this.languages = languages;
-    }
-
     public String getFilm_description() {
         return film_description;
     }
@@ -126,11 +92,42 @@ public class Film{
         this.film_description = film_description;
     }
 
-    @Override
-    public String toString() {
-        return actor+" "+ filmID+" "+film_end_date+"\n"; //To change body of generated methods, choose Tools | Templates.
+    public String getTrailer() {
+        return trailer;
     }
 
-    
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
 
+    public void setLanguage(List<Language> language) {
+        this.language = language;
+    }
+
+    public void setActor(List<Actor> actor) {
+        this.actor = actor;
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
+    
+    public List<Language> getLanguage(){
+        return language;
+    }
+    public List<Actor> getActor(){
+        return actor;
+    }
+    public List<Category> getCategory(){
+        return category;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+    
 }

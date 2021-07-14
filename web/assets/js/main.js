@@ -482,4 +482,6 @@
         owlB.trigger('prev.owl.carousel', [300]);
     })
   });
+  
 })(jQuery);
+

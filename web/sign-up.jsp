@@ -48,7 +48,7 @@
                         <span class="cate">welcome</span>
                         <h2 class="title">to Boleto </h2>
                     </div>
-                    <form action="SignUpControl" class="account-form" method="POST">
+                    <form action="sign-up" class="account-form" method="POST">
                         <c:if test="${requestScope.error != null}">
                             <p style="color:red">${requestScope.error}</p>
                         </c:if>
@@ -74,7 +74,7 @@
                         </div>
                     </form>
                     <div class="option">
-                        Already have an account? <a href="sign-in.jsp">Login</a>
+                        Already have an account? <a href="login">Login</a>
                     </div>
                     <div class="or"><span>Or</span></div>
                     <ul class="social-icons">
@@ -89,7 +89,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#0">
+                            <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/PRJ301/login-google&response_type=code
+    &client_id=234581659066-a9lfu4m2ee790rq2orlmhi7v68otp6ld.apps.googleusercontent.com&approval_prompt=force">
                                 <i class="fab fa-google"></i>
                             </a>
                         </li>

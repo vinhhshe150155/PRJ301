@@ -19,7 +19,10 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+//        processRequest(request, response);
+            response.setContentType("text/html;charset=UTF-8");
+            request.getRequestDispatcher("sign-in.jsp").forward(request, response);
+
     }
 
     @Override
@@ -35,7 +38,14 @@ public class LoginControl extends HttpServlet {
         }else{
             HttpSession session=request.getSession();
             session.setAttribute("account", a);
-            response.sendRedirect("index.jsp");
+//            Object o = session.getAttribute("account");
+//            Account customer =  (Account) o;
+//            System.out.println("Home: "+customer.getEmail());
+//            if(customer==null){
+//            response.sendRedirect("login");
+//            System.out.println("UOA");
+//        }
+            response.sendRedirect("home");
         }
     }
 

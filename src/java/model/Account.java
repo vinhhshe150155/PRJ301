@@ -10,22 +10,33 @@ package model;
  * @author Admin
  */
 public class Account {
-    private String email, passwowd, name, address, phone;
+    private int id;
+    private String email, password, name, address, phone, date;
 
     public Account() {
     }
 
     public Account(String email, String passwowd) {
         this.email = email;
-        this.passwowd = passwowd;
+        this.password = passwowd;
     }
 
-    public Account(String email, String passwowd, String name, String address, String phone) {
+    public Account(int id, String email, String passwowd, String name, String address, String phone, String date) {
+        this.id = id;
         this.email = email;
-        this.passwowd = passwowd;
+        this.password = passwowd;
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -36,12 +47,12 @@ public class Account {
         this.email = email;
     }
 
-    public String getPasswowd() {
-        return passwowd;
+    public String getPassword() {
+        return password;
     }
 
     public void setPasswowd(String passwowd) {
-        this.passwowd = passwowd;
+        this.password = passwowd;
     }
 
     public String getName() {
@@ -68,6 +79,12 @@ public class Account {
         this.phone = phone;
     }
 
+    public String getDate() {
+        return date;
+    }
 
-    
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 }
