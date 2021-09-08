@@ -1,4 +1,4 @@
-drop database cinema01
+
 
 create database cinema01
 
